@@ -2,22 +2,22 @@ import { INavbarData } from "./helper";
 
 export const navbarData: INavbarData[] = [
     {
-        routeLink: 'dashboard',
+        routeLink: '',
         icon: 'ri-home-line',
         label: 'Dashboard'
     },
     {
-        routeLink: 'product',
+        routeLink: 'stationeries',
         icon: 'ri-store-3-line',
-        label: 'Prodcts',
+        label: 'Stationerries',
         items: [
             {
-                routeLink: 'product/list',
-                label: 'List Prodcts',
+                routeLink: 'stationeries/list',
+                label: 'List Stationeries',
             },
             {
-                routeLink: 'product/create',
-                label: 'Add New Products',
+                routeLink: 'stationeries/create',
+                label: 'Add New Stationeries',
             }
         ]
     },
@@ -33,6 +33,66 @@ export const navbarData: INavbarData[] = [
             {
                 routeLink: 'category/create',
                 label: 'Add New Category',
+            }
+        ]
+    },
+    {
+        routeLink: 'imports',
+        icon: 'ri-list-check-2',
+        label: 'Imports',
+        items: [
+            {
+                routeLink: 'imports/list',
+                label: 'List Imports',
+            },
+            {
+                routeLink: 'imports/create',
+                label: 'Add New Imports',
+            }
+        ]
+    },
+    {
+        routeLink: 'import-details',
+        icon: 'ri-list-check-2',
+        label: 'import-details',
+        items: [
+            {
+                routeLink: 'import-details/list',
+                label: 'List import-details',
+            },
+            {
+                routeLink: 'import-details/create',
+                label: 'Add New import-details',
+            }
+        ]
+    },
+    {
+        routeLink: 'requests',
+        icon: 'ri-list-check-2',
+        label: 'Requests',
+        items: [
+            {
+                routeLink: 'requests/list',
+                label: 'List import-details',
+            },
+            {
+                routeLink: 'requests/create',
+                label: 'Add New Requests',
+            }
+        ]
+    },
+    {
+        routeLink: 'request-details',
+        icon: 'ri-list-check-2',
+        label: 'Request-Details',
+        items: [
+            {
+                routeLink: 'request-details/list',
+                label: 'List import-details',
+            },
+            {
+                routeLink: 'request-details/create',
+                label: 'Add New Request-Details',
             }
         ]
     },
@@ -63,6 +123,22 @@ export const navbarData: INavbarData[] = [
             {
                 routeLink: 'roles/create',
                 label: 'Add New Roles',
+            }
+        ]
+    },
+    {
+        routeLink: 'suppliers',
+        icon: 'ri-home-line',
+        label: 'Suppliers',
+        expanded: false,
+        items: [
+            {
+                routeLink: 'suppliers/create',
+                label: 'Create-Suppliers',
+            },
+            {
+                routeLink: 'suppliers/list',
+                label: 'List-Suppliers'
             }
         ]
     },
@@ -106,4 +182,5 @@ export const navbarData: INavbarData[] = [
         icon: 'ri-image-line',
         label: 'Banner'
     },
+    
 ];

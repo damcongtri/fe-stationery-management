@@ -10,13 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
-import { OverlayModule } from '@angular/cdk/overlay';// tạo thành phần lớp phủ// thường được sử dụng để tạo các dropdowns, popup, tooltips, context menus
+import { OverlayModule } from '@angular/cdk/overlay';
+//import { CreateSuppliersComponent } from './supplier/create-suppliers/create-suppliers.component';// tạo thành phần lớp phủ// thường được sử dụng để tạo các dropdowns, popup, tooltips, context menus
 // import { CdkMenuModule } from '@angular/cdk/menu';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+     
     ],
     imports: [
         BrowserModule,

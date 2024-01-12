@@ -20,7 +20,11 @@ import { HeaderComponent } from './header/header.component';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { CategoryComponent } from './category/category.component';
 import { UserComponent } from './user/user.component';
-import { RolesComponent } from './roles/roles.component';// cần import đúng module cần sử dụng nếu không xẽ không sử dụng được
+import { RolesComponent } from './roles/roles.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { ImportsComponent } from './imports/imports.component';
+import { ImportDetailsComponent } from './import-details/import-details.component';
+// cần import đúng module cần sử dụng nếu không xẽ không sử dụng được
 
 @NgModule({
     declarations: [
@@ -39,7 +43,10 @@ import { RolesComponent } from './roles/roles.component';// cần import đúng 
         HeaderComponent,
         CategoryComponent,
         UserComponent,
-        RolesComponent, //ng g c sublevel-menu --inline-template --inline-style --flat true
+        RolesComponent,
+        ImportsComponent,
+        ImportDetailsComponent,
+      
     ],
     imports: [CommonModule, AdminRoutingModule, CdkMenuModule, CarouselModule],
 })
