@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
-
-
+import { HttpClientModule } from "@angular/common/http";
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -29,9 +24,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
         BrowserAnimationsModule,
         OverlayModule,
         HttpClientModule,
-        RouterModule,
-        FormsModule,
-        ReactiveFormsModule
+        RouterModule
         // CdkMenuModule
     ],
     providers: [],
