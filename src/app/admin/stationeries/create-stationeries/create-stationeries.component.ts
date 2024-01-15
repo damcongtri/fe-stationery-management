@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-create-stationeries',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-stationeries.component.scss']
 })
 export class CreateStationeriesComponent {
-
+  public Editor = ClassicEditor;
 }
