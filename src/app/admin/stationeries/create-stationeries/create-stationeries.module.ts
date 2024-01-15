@@ -8,8 +8,6 @@ import { CreateStationeriesRoutingModule } from './create-stationeries-routing.m
   imports: [
     CommonModule,
     CreateStationeriesRoutingModule,
-    
-    
   ],
   schemas: [NO_ERRORS_SCHEMA],
 })
