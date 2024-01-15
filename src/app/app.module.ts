@@ -18,7 +18,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
 @NgModule({
     declarations: [
         AppComponent,
-     
     ],
     imports: [
         BrowserModule,
@@ -26,6 +25,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
         FontAwesomeModule,
         BrowserAnimationsModule,
         OverlayModule,
+        
         // CdkMenuModule
     ],
     providers: [],

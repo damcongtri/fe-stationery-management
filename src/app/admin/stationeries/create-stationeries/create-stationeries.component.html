@@ -1,1 +1,109 @@
-<p>create-stationeries works!</p>
+<div class="container-fluid">
+    <!-- --start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Tạo sản phẩm</h4>
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0 justify-content-between">
+                        <li class="breadcrumb-item"><a>Sản phẩm</a></li>
+                        <li><a>></a></li>
+                        <li class="breadcrumb-item active"><a>Tạo sản phẩm</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --end page title -->
+    <form action="" id="createproduct-form" autocomplete="off" class="needs-validation">
+        <div class="row">
+            <div class="col-xl-9 col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="avata-title mr-3 ">
+                                <i class="ri-instance-line"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="card-title mb-1">Thông tin sản phẩm</h5>
+                                <p class="text-muted mb-0">Điền đầy đủ thông tin bên dưới.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Name</label>
+                            <input type="hidden" class="form-control">
+                            <input type="text" class="form-control d-none">
+                            <input type="text" class="form-control" placeholder="Please enter the name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Price</label>
+                            <input type="hidden" class="form-control">
+                            <input type="text" class="form-control d-none">
+                            <input type="text" class="form-control" placeholder="Please enter the price">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">UnitPrice</label>
+                            <input type="hidden" class="form-control">
+                            <input type="text" class="form-control d-none">
+                            <input type="text" class="form-control" placeholder="Please enter the unitprice">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Quantity inventory</label>
+                            <input type="hidden" class="form-control">
+                            <input type="text" class="form-control d-none">
+                            <input type="text" class="form-control" placeholder="Please enter the quantity inventory">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title">ReoderLevel</label>
+                            <input type="text" class="form-control" placeholder="Please enter the reoderLevel">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the category</label>
+                            <select class="form-control" style="width: 170px;" id="">
+                                <option  value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the supplier</label>
+                            <select class="form-control" style="width: 170px;" id="">
+                                <option  value="">1</option>
+                                <option value="">2</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the description</label>
+                            <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+                        </div>
+
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                    
+                </div>
+
+               
+
+
+
+
+
+
+
+
+
+
+                <!-- end-card -->
+            </div>
+            <!-- end-col -->
+            <div class="col-xl-3 col-lg-4">
+             
+            </div>
+            <!-- end-col -->
+        </div>
+        <!-- end-row -->
+
+        
+    </form>
+</div>

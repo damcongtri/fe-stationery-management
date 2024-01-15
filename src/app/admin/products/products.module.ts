@@ -7,8 +7,6 @@ import { ListPoductComponent } from './list-poduct/list-poduct.component';
 import { CreatePoductComponent } from './create-poduct/create-poduct.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
-
-
 @NgModule({
   declarations: [
     ProductsComponent,

@@ -5,6 +5,7 @@ import { StationeriesRoutingModule } from './stationeries-routing.module';
 import { StationeriesComponent } from './stationeries.component';
 import { CreateStationeriesComponent } from './create-stationeries/create-stationeries.component';
 import { ListStationeriesComponent } from './list-stationeries/list-stationeries.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ListStationeriesComponent } from './list-stationeries/list-stationeries
   ],
   imports: [
     CommonModule,
-    StationeriesRoutingModule
+    StationeriesRoutingModule,
+    CKEditorModule
   ]
 })
 export class StationeriesModule { }
