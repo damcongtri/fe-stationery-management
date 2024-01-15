@@ -24,6 +24,7 @@ import { RolesComponent } from './roles/roles.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { ImportsComponent } from './imports/imports.component';
 import { ImportDetailsComponent } from './import-details/import-details.component';
+import { HttpClientModule } from '@angular/common/http';
 // cần import đúng module cần sử dụng nếu không xẽ không sử dụng được
 
 @NgModule({
