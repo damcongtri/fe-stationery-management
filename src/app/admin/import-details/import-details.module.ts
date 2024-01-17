@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ImportDetailsRoutingModule } from './import-details-routing.module';
 import { CreateImportDetailsComponent } from './create-import-details/create-import-details.component';
 import { ListImportDetailsComponent } from './list-import-details/list-import-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { ListImportDetailsComponent } from './list-import-details/list-import-de
   ],
   imports: [
     CommonModule,
-    ImportDetailsRoutingModule
+    ImportDetailsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ImportDetailsModule { }

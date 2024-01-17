@@ -5,6 +5,7 @@ import { RequestsRoutingModule } from './requests-routing.module';
 import { RequestsComponent } from './requests.component';
 import { CreateRequetsComponent } from './create-requets/create-requets.component';
 import { ListRequetsComponent } from './list-requets/list-requets.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { ListRequetsComponent } from './list-requets/list-requets.component';
   ],
   imports: [
     CommonModule,
-    RequestsRoutingModule
+    RequestsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RequestsModule { }

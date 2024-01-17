@@ -6,16 +6,15 @@
                     <div class="card-header-2">
                         <h5>Import Detail Information</h5>
                     </div>
-                    <form action="" class="theme-form theme-form-2 mega-form">
+                    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
                         <div class="mb-4 row align-items-center">
-                            <label class="col-sm-3 col-form-label form-label-title">Category</label>
+                            <label class="col-sm-3 col-form-label form-label-title">Product</label>
                             <div class="col-sm-9">
                                 <div class="">
-                                    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
+                                    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" formControlName="product">
+                                
                                         <option value="1" class="form-control">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        
                                       </select>
                                 </div>
                             </div>
@@ -24,7 +23,15 @@
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Quantity</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="Quantity">
+                                <input class="form-control" type="text" placeholder="Quantity" formControlName="quantity">
+                                <div *ngIf="f.quantity.invalid && (f.quantity.dirty || f.quantity.touched)" class="text-danger">
+                                    <div *ngIf="f.quantity.errors?.['required']">
+                                        This is a required field.
+                                    </div>
+                                    <div *ngIf="f.quantity.errors?.['min']">
+                                        Value min is 1                           
+                                    </div>
+                                  </div>
                             </div>
                         </div>
                         
