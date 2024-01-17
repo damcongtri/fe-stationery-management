@@ -1,1 +1,46 @@
-<p>create-import-details works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 m-auto">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-header-2">
+                        <h5>Import Detail Information</h5>
+                    </div>
+                    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+                        <div class="mb-4 row align-items-center">
+                            <label class="col-sm-3 col-form-label form-label-title">Product</label>
+                            <div class="col-sm-9">
+                                <div class="">
+                                    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example" formControlName="product">
+                                
+                                        <option value="1" class="form-control">One</option>
+                                        
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row align-items-center">
+                            <label class="form-label-title col-sm-3 mb-0">Quantity</label>
+                            <div class="col-sm-9">
+                                <input class="form-control" type="text" placeholder="Quantity" formControlName="quantity">
+                                <div *ngIf="f.quantity.invalid && (f.quantity.dirty || f.quantity.touched)" class="text-danger">
+                                    <div *ngIf="f.quantity.errors?.['required']">
+                                        This is a required field.
+                                    </div>
+                                    <div *ngIf="f.quantity.errors?.['min']">
+                                        Value min is 1                           
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-danger ">Sumbit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

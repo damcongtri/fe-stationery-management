@@ -21,14 +21,11 @@ export class HeaderComponent implements OnInit {
     constructor(private router:Router) { }
     @HostListener('window:resize', ['$event'])// ắng tai cửa sổ trình duyệt. nếu thay đổi là tuwjd động gọi đến onResize
     onResize(event: any) { //onResize phương thức có sẵn để sử lý sự kiện cửa sổ trình duyệt
-        console.log(window.innerWidth);// lấy chiều rộng hiện tại cảu trình duyệt
         this.checkCanShowSearchAsOverlay(window.innerWidth);
     }
     ngOnInit(): void { // tự động
         this.checkCanShowSearchAsOverlay(window.innerWidth);
-        console.log(window.innerWidth);
         this.selectedLanguage = this.languages[0]; // tức là lấy cái ảnh đầu tiên gán cho biến selectedLanguage
-        console.log(this.languages);
 
     }
     getHeadClass(): string {
