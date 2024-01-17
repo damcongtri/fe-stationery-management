@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         component: AdminComponent,
         children: [
-            { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Chuyển hướng ngay lập tức đến dashboard
+            // { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Chuyển hướng ngay lập tức đến dashboard
             { path: '', component: DashboardComponent },
             
             {
@@ -58,7 +58,7 @@ const routes: Routes = [
         ],
     },
 ];
-// -----------------------------------tao thề xẽ học lại phần này , bug nhiều dã man kinh khủng---------------------------------
+
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
