@@ -33,7 +33,8 @@ export const navbarData: INavbarData[] = [
             {
                 routeLink: 'category/create',
                 label: 'Add New Category',
-            }
+            },
+           
         ]
     },
     {

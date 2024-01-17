@@ -7,25 +7,20 @@
                     <div class="card-header-2">
                         <h5>Category Information</h5>
                     </div>
-                    <form action="" class="theme-form theme-form-2 mega-form">
+                    <form action="" [formGroup]="formData" (ngSubmit)="onSubmit()"  class="theme-form theme-form-2 mega-form">
                         <div class="mb-4 row align-items-center">
                             <label class="form-label-title col-sm-3 mb-0">Category Name</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="Category Name">
-                            </div>
-                        </div>
-                        <div class="mb-4 row align-items-center">
-                            <label class="col-sm-3 col-form-label form-label-title">Category
-                                Status</label>
-                            <div class="form-group col-sm-9">
-                               <div class="status">
-                                <input class="mt-4" name="status" type="radio">Hidden
-                                <input class="mt-4 " style="margin-left: 10px;" name="status" type="radio">Show
-                               </div>
+                                <input class="form-control" formControlName="categoryName" type="text" placeholder="Category Name">
+                                <div *ngIf="f.categoryName.invalid && (f.categoryName.dirty || f.categoryName.touched)" class="text-danger">
+                                    <div *ngIf="f.categoryName.errors?.['required']">
+                                        This is a required field.
+                                    </div>
+                                  </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-danger ">Sumbit</button>
+                            <button type="submit" class="btn btn-primary"[disabled]="formData.invalid">Sumbit</button>
                         </div>
                     </form>
                 </div>

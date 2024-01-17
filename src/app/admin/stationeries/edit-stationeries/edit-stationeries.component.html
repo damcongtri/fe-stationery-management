@@ -1,0 +1,143 @@
+<div class="container-fluid">
+    <!-- --start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0">Update New Stationery</h4>
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0 justify-content-between">
+                        <li class="breadcrumb-item"><a>Stationery</a></li>
+                        <li><a>></a></li>
+                        <li class="breadcrumb-item active"><a>Update New Stationery</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --end page title -->
+    <form action="" [formGroup]="formData" (ngSubmit)="onSubmit()" enctype="multipart/form-data" id="createproduct-form" autocomplete="off" class="needs-validation">
+        <div class="row">
+            <div class="col-xl-9 col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="avata-title mr-3 ">
+                                <i class="ri-instance-line"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="card-title mb-1">Infomation Stationeries</h5>
+                                <p class="text-muted mb-0">Điền đầy đủ thông tin bên dưới.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Name</label>
+                            <input type="text" class="form-control"  formControlName="name" placeholder="Please enter the name">
+                            <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)" class="text-danger">
+                                <div *ngIf="f.name.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Price</label>
+                            <input type="text" class="form-control" formControlName="price" laceholder="Please enter the price">
+                            <div *ngIf="f.price.invalid && (f.price.dirty || f.price.touched)" class="text-danger">
+                                <div *ngIf="f.price.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">UnitPrice</label>
+                            <input type="text" class="form-control" formControlName="unitPrice" placeholder="Please enter the unitprice">
+                            <div *ngIf="f.unitPrice.invalid && (f.unitPrice.dirty || f.unitPrice.touched)" class="text-danger">
+                                <div *ngIf="f.unitPrice.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input"> inventory</label>
+                            <input type="text" class="form-control" formControlName="inventory" placeholder="Please enter the quantity inventory">
+                            <div *ngIf="f.inventory.invalid && (f.inventory.dirty || f.inventory.touched)" class="text-danger">
+                                <div *ngIf="f.inventory.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input"> Image</label>
+                            <input type="text" class="form-control" formControlName="image" placeholder="Please enter the quantity inventory">
+                            <div *ngIf="f.image.invalid && (f.image.dirty || f.image.touched)" class="text-danger">
+                                <div *ngIf="f.image.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">ImageFile</label>
+                            <input type="file" class="form-control" (change)="changeImage($event)" placeholder="Please enter the quantity inventory">
+                            <img *ngIf="image" [src]="image" alt="" width="50px">
+                            <div *ngIf="f.image.errors">
+                                <small class="text-danger">This is a required field.</small>
+                            </div>
+                            <div *ngIf="f.image.errors && f.image.errors.fileType">
+                                <small class="text-danger">Please choose a valid image file.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the Suppliers</label>
+                            <select class="form-control"  formControlName="supplierId" style="width: 230px;" id="">
+                                <option  value="">Please seclect Supplier</option>
+                                <option  *ngFor="let item of listSuppliers"  value="{{item.supplierId}}">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the Category</label>
+                            <select class="form-control"  formControlName="categoryId" style="width: 230px;" id="">
+                                <option  value="">Please seclect Category</option>
+                                <option  *ngFor="let item of listCategory" value="{{item.categoryId}}">{{item.categoryName}}</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label-title" for="product-title-input">Please select the description</label>
+                            <ckeditor [editor]="Editor" formControlName="description" data="Hello, world!"></ckeditor>
+                            <div *ngIf="f.description.invalid && (f.description.dirty || f.description.touched)" class="text-danger">
+                                <div *ngIf="f.description.errors?.['required']">
+                                    This is a required field.
+                                </div>
+                              </div>
+                        </div>
+
+                        <button class="btn btn-primary" >Submit</button>
+                    </div>
+                    
+                </div>
+
+               
+
+
+
+
+
+
+
+
+
+
+                <!-- end-card -->
+            </div>
+            <!-- end-col -->
+            <div class="col-xl-3 col-lg-4">
+             
+            </div>
+            <!-- end-col -->
+        </div>
+        <!-- end-row -->
+
+        
+    </form>
+</div>

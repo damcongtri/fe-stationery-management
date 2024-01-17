@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateSuppliersComponent } from './create-suppliers/create-suppliers.component';
 import { ListSuppliersComponent } from './list-suppliers/list-suppliers.component';
 import { SuppliersComponent } from './suppliers.component';
+import { EditSupplierComponent } from './edit-supplier/edit-supplier.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
 {
     path: 'create',
     component: CreateSuppliersComponent
+},
+{
+  path: 'edit/:id',
+  component: EditSupplierComponent
 },
 ];
 

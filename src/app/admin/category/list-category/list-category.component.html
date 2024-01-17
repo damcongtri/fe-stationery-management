@@ -6,7 +6,7 @@
             <div class="right-options">
                 <ul>
                     <li>
-                        <a class="btn btn-solid" href="">Add New
+                        <a class="btn btn-solid" routerLink="/category/create" href="">Add New
                         </a>
                     </li>
                 </ul>
@@ -23,84 +23,36 @@
                         <th>#</th>
                         <th>Id</th>
                         <th>CategoryName</th>
-                        <th>Status</th>
                         <th>Option</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="">
-                            <span>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox-1">
-                                    <label class="form-check-label" for="checkbox-1"></label>
-                                </div>
-                            </span>
-                        </td>
-                        <td>1</td>
-                      
-                        <td>Aata Buscuit</td>
-                        <td class="status-danger">
-                            <span>Pending</span>
-                        </td>
+                    <tr *ngFor=" let item of listCategory">
+                        <td>#</td>
+                        <td>{{item.categoryId}}</td>
+                        <td>{{item.categoryName}}</td>
                         <td>
                             <ul>
                                 <li>
-                                    <a href="order-detail.html">
+                                    <a  href="">
                                         <i class="ri-eye-line"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a routerLink="/category/edit/{{item.categoryId}}">
                                         <i class="ri-pencil-line"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">
+                                    <a (click)="delete(item.categoryId)">
                                         <i class="ri-delete-bin-line"></i>
                                     </a>
                                 </li>
                             </ul>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="">
-                            <span>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox-1">
-                                    <label class="form-check-label" for="checkbox-1"></label>
-                                </div>
-                            </span>
-                        </td>
-                        <td>2</td>
-                      
-                        <td>Aata Buscuit</td>
-                        <td class="status-danger">
-                            <span>Pending</span>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a href="order-detail.html">
-                                        <i class="ri-eye-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="ri-pencil-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">
-                                        <i class="ri-delete-bin-line"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
+                  
                   
                     
                 </tbody>

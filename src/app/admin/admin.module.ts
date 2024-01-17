@@ -24,6 +24,7 @@ import { RolesComponent } from './roles/roles.component';
 import { SuppliersComponent } from './suppliers/suppliers.component';
 import { ImportsComponent } from './imports/imports.component';
 import { ImportDetailsComponent } from './import-details/import-details.component';
+import { HttpClientModule } from '@angular/common/http';
 // cần import đúng module cần sử dụng nếu không xẽ không sử dụng được
 
 @NgModule({
@@ -45,14 +46,10 @@ import { ImportDetailsComponent } from './import-details/import-details.componen
         UserComponent,
         RolesComponent,
         ImportsComponent,
-        ImportDetailsComponent,
+        ImportDetailsComponent
       
     ],
     imports: [CommonModule, AdminRoutingModule, CdkMenuModule, CarouselModule],
 })
 export class AdminModule { }
-// --inline-template: Tùy chọn này cho biết rằng một phần template của thành phần sẽ được viết trực tiếp trong tệp TypeScript của thành phần (thay vì tạo một tệp HTML riêng). Điều này làm giảm số lượng tệp bên ngoài và phù hợp cho các thành phần nhỏ hoặc đơn giản.
 
-//--inline-style: Tùy chọn này tương tự như --inline-template, nhưng áp dụng cho phần style (CSS) của thành phần. Nếu bạn sử dụng --inline-style, phần CSS của thành phần cũng sẽ được viết trực tiếp trong tệp TypeScript của thành phần.
-
-//--flat true: Tùy chọn này đặt thành phần mới được tạo mà không tạo thư mục riêng. Nghĩa là tất cả các tệp liên quan đến thành phần sẽ được đặt trong thư mục hiện tại, chứ không phải trong một thư mục con có tên giống với tên của thành phần (ở đây là "sublevel-menu").

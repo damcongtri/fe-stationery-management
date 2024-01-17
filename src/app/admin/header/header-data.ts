@@ -53,6 +53,7 @@ export const userItems = [
     },
     {
         icon: 'ri-logout-circle-r-line',
-        label: 'Logout'
+        label: 'Logout',
+        logOut: true
     },
 ]

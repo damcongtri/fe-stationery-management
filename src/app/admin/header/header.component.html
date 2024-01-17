@@ -98,8 +98,14 @@ thay đổi chúng -->
     <div class="overlay overlay-user overlay-fall">
         <ul>
             <li *ngFor="let item of UserItems">
-                <i class="icon" [ngClass]="item.icon"></i>
-                <span>{{item.label}}</span>
+                <div *ngIf="!item.logOut">
+                    <i class="icon" [ngClass]="item.icon"></i>
+                    <span>{{item.label}}</span>
+                </div>
+                <div *ngIf="item.logOut" (click)="logOut()">
+                    <i class="icon" [ngClass]="item.icon" ></i>
+                    <span>{{item.label}}</span>
+                </div>
             </li>
         </ul>
     </div>
