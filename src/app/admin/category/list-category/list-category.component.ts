@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { CategoryServiceService } from 'src/app/service/category-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-category',
@@ -10,7 +11,6 @@ import { CategoryServiceService } from 'src/app/service/category-service.service
 export class ListCategoryComponent implements OnInit  {
  
   listCategory:any =[];
-  id:any;
   constructor(private categoryService: CategoryServiceService, private router: Router) {}
 
   ngOnInit(): void {
@@ -19,16 +19,28 @@ export class ListCategoryComponent implements OnInit  {
 
     getAll(){
       this.categoryService.getCategory().subscribe(data =>{
-        console.log(data);
-        
         this.listCategory= data;
       })
     }
-
     delete (id:number) {
-      this.categoryService.delete(id).subscribe(()=>{
-        console.log("xoa");
-        this.getAll();
+      if(confirm("Are you sure to delete it?")){
+        this.categoryService.delete(id).subscribe(
+          response => { this.getAll(), this.deleteSuccessful;},
+          err => {
+            alert(err);
+          }
+        )
+      }
+      
+    }
+
+    deleteSuccessful() {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Delete Successfully',
+        showConfirmButton: false,
+        timer: 1000
       })
     }
 

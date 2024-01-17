@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { env  } from 'src/env/env';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StationeriesService {
 
-  private apiUrlCategory = 'http://172.16.0.33:5000/api';  // Đặt URL của API của bạn ở đây
+  private apiUrlStationery = env.apiUrl;  // Đặt URL của API của bạn ở đây
 
    constructor(private http: HttpClient) {
   }
 
   getStationeries(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrlCategory}/Stationeries`);
+    return this.http.get<any>(`${this.apiUrlStationery}/Stationery`);
   }
 
   insertStationeries(data: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrlCategory}/Stationeries`, data);
+    return this.http.post<any>(`${this.apiUrlStationery}/Stationery`, data);
   }
   updateStationeries(id:number, data:any):Observable<any>{
-    return this.http.put<any>(`${this.apiUrlCategory}/Stationeries/${id}`, data)
+    return this.http.put<any>(`${this.apiUrlStationery}/Stationery/${id}`, data)
   }
 
   getId(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrlCategory}/Stationeries/${id}`);
+    return this.http.get<any>(`${this.apiUrlStationery}/Stationery/${id}`);
   }
   delete(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrlCategory}/Stationeries/${id}`);
+    return this.http.delete<any>(`${this.apiUrlStationery}/Stationery/${id}`);
   }
 }
