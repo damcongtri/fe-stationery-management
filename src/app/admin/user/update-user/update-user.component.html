@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0">Create New User</h4>
+                <h4 class="mb-sm-0">Update User</h4>
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0 justify-content-between">
                         <li class="breadcrumb-item"><a>User</a></li>
                         <li><a>></a></li>
-                        <li class="breadcrumb-item active"><a>Create User</a></li>
+                        <li class="breadcrumb-item active"><a>Update User</a></li>
                     </ol>
                 </div>
             </div>
@@ -60,29 +60,6 @@
                             <label class="form-label-title" for="product-title-input">Avatar</label>
                             <input type="file" class="form-control" (change)="changeImage($event)">
                             <img *ngIf="image" [src]="image" alt="" width="50px">
-                            <div *ngIf="f.image.errors">
-                                <small class="text-danger">This is a required field.</small>
-                            </div>
-                            <div *ngIf="f.image.errors && f.image.errors.fileType">
-                                <small class="text-danger">Please choose a valid image file.</small>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label-title" for="product-title-input">Password</label>
-                            <input type="password" formControlName="passWord" class="form-control"
-                                placeholder="Please enter the password">
-                            <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
-                                <div *ngIf="f.passWord.errors?.['required']">
-                                    <small id="helpId" class="text-danger">Password must be between 6 and 30
-                                        characters, contain at least 1 lowercase letter, uppercase letter and
-                                        number</small>
-                                </div>
-                                <div *ngIf="f.passWord.errors?.['minlength']">
-                                    <small id="helpId" class="text-danger">Password must be between 6 and 30
-                                        characters, contain at least 1 lowercase letter, uppercase letter and
-                                        number</small>
-                                </div>
-                            </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label-title" for="product-title-input">Choose the superior</label>
@@ -109,7 +86,5 @@
             <!-- end-col -->
         </div>
         <!-- end-row -->
-
-
     </form>
 </div>

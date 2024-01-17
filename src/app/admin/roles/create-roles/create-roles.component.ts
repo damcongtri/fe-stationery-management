@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RoleService } from 'src/app/service/role.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-roles',
@@ -25,11 +26,22 @@ export class CreateRolesComponent implements OnInit {
 
   onSubmit() {
     this.roleService.add(this.formData.value).subscribe(role => {
+      this.createSuccessful();
       this.router.navigate(['/roles/list']);
     })
   }
 
   get f(): any {
     return this.formData.controls;
+  }
+
+  createSuccessful() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Create Successfully',
+      showConfirmButton: false,
+      timer: 1000
+    })
   }
 }

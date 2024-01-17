@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { env } from 'src/env/env'
 
-const url = 'http://172.16.0.33:5000/api';
+const url = env.apiUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -22,11 +23,11 @@ export class RoleService {
     return this.http.post<any>(`${url}/Role`, data);
   }
 
-  update(data:any,id: string): Observable<any> {
+  update(data: any, id: string): Observable<any> {
     return this.http.put<any>(`${url}/Role/${id}`, data)
   }
 
-  delete(id:string): Observable<boolean> {
+  delete(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${url}/Role/${id}`)
   }
 

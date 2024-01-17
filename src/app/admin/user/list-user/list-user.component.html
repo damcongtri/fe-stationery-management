@@ -6,7 +6,7 @@
             <div class="right-options">
                 <ul>
                     <li>
-                        <a class="btn btn-solid" href="">Add User</a>
+                        <a class="btn btn-solid" routerLink="/user/create">Add User</a>
                     </li>
                 </ul>
             </div>
@@ -20,18 +20,17 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Category</th>
-                        <th>Current Qty</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Option</th>
-
+                        <th>User Id</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Avatar</th>
+                        <th>Superior</th>
+                        <th>Role</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let item of users">
                         <td class="">
                             <span>
                                 <div class="form-check">
@@ -40,18 +39,16 @@
                                 </div>
                             </span>
                         </td>
+                        <td>{{item.userId}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
                         <td>
                             <div class="table-image">
-                                <img src="/assets/test.png" class="img-fluid" alt="">
+                                <img src="{{defaultUrl}}{{item.image}}" class="img-fluid" alt="">
                             </div>
                         </td>
-                        <td>Aata Buscuit</td>
-                        <td>Buscuit</td>
-                        <td>12</td>
-                        <td class="td-price">$95.97</td>
-                        <td class="status-danger">
-                            <span>Pending</span>
-                        </td>
+                        <td>{{item.superiorId}}</td>
+                        <td>{{item.role.roleName}}</td>
                         <td>
                             <ul>
                                 <li>
@@ -60,97 +57,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a routerLink="/user/update/{{item.userId}}">
                                         <i class="ri-pencil-line"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                    <a (click)="delete(item.userId)" style="cursor: pointer;" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalToggle">
-                                        <i class="ri-delete-bin-line"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr class="even">
-                        <td>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="1" id="checkbox-1"
-                                    class="form-check-input">
-                                <label class="form-check-label" for="checkbox-1"></label>
-                            </div>
-
-                        </td>
-                        <td>
-                            <div class="table-image">
-                                <img src="/assets/test.png" class="img-fluid" alt="">
-                            </div>
-                        </td>
-                        <td>Cold Brew Coffee</td>
-                        <td>Buscuit</td>
-                        <td>12</td>
-                        <td class="td-price">$95.97</td>
-                        <td class="status-close">
-                            <span>Approved</span>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a href="order-detail.html">
-                                        <i class="ri-eye-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="ri-pencil-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">
-                                        <i class="ri-delete-bin-line"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox-1">
-                                    <label class="form-check-label" for="checkbox-1"></label>
-                                </div>
-                            </span>
-                        </td>
-                        <td>
-                            <div class="table-image">
-                                <img src="/assets/test.png" class="img-fluid" alt="">
-                            </div>
-                        </td>
-                        <td>Peanut Butter Cookies</td>
-                        <td>Buscuit</td>
-                        <td>12</td>
-                        <td class="td-price">$95.97</td>
-                        <td class="status-danger">
-                            <span>Pending</span>
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a>
-                                        <i class="ri-eye-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <i class="ri-pencil-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
                                         <i class="ri-delete-bin-line"></i>
                                     </a>
                                 </li>

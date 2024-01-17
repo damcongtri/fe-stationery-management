@@ -1,5 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Languages, notifications, userItems } from './header-data';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-header',
@@ -16,7 +18,7 @@ export class HeaderComponent implements OnInit {
     UserItems = userItems;
 
 
-    constructor() { }
+    constructor(private router:Router) { }
     @HostListener('window:resize', ['$event'])// ắng tai cửa sổ trình duyệt. nếu thay đổi là tuwjd động gọi đến onResize
     onResize(event: any) { //onResize phương thức có sẵn để sử lý sự kiện cửa sổ trình duyệt
         console.log(window.innerWidth);// lấy chiều rộng hiện tại cảu trình duyệt
@@ -48,4 +50,19 @@ export class HeaderComponent implements OnInit {
         }
 
     }
+
+    logOut(){
+        sessionStorage.clear();
+        this.router.navigate(['/login']);
+    }
+    logOutSuccessful() {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Log Out Successfully',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+
 }
