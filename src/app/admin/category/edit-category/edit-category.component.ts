@@ -30,7 +30,6 @@ export class EditCategoryComponent implements OnInit{
   onSubmit(){
     console.log(this.formData.value);
       this.categoryService.updateCategory(this._id ,this.formData.value).subscribe((data)=>{
-        console.log(data);  
         this.router.navigate(['/category/list']);
       })
   }

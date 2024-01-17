@@ -1,22 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CategoryServiceService } from 'src/app/service/category-service.service';
 import { StationeriesService } from 'src/app/service/stationeries.service';
 import { SuppliersService } from 'src/app/service/suppliers.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
-  selector: 'app-create-stationeries',
-  templateUrl: './create-stationeries.component.html',
-  styleUrls: ['./create-stationeries.component.scss']
+  selector: 'app-edit-stationeries',
+  templateUrl: './edit-stationeries.component.html',
+  styleUrls: ['./edit-stationeries.component.scss']
 })
-export class CreateStationeriesComponent implements OnInit{
+export class EditStationeriesComponent implements OnInit{
+
   public Editor = ClassicEditor;
 
   image: string= '';
   listSuppliers: any;
   listCategory:any;
+  _id:any;
 
   formData2 = new FormData();
 
@@ -32,11 +36,18 @@ export class CreateStationeriesComponent implements OnInit{
     fileUpload: new FormControl(File, Validators.required)
   });
 
-  constructor(private service: StationeriesService, private router: Router, private serviceSuppliers: SuppliersService, private categoryService: CategoryServiceService) {
+  constructor(private service: StationeriesService, private router: Router, private serviceSuppliers: SuppliersService, private categoryService: CategoryServiceService, private routers: ActivatedRoute) {
     this.f.fileUpload.errors = false
   }
 
   ngOnInit(): void {
+
+    this._id = this.routers.snapshot.params['id']
+    console.log(this._id)
+    this.service.getId(this._id).subscribe((data) => {
+      this.formData.patchValue(data)
+    })
+    
     this.serviceSuppliers.getAll().subscribe((data)=>{
       this.listSuppliers = data;
     })
@@ -84,13 +95,15 @@ export class CreateStationeriesComponent implements OnInit{
     this.formData2.append('categoryId', formValue.categoryId as string);
     this.formData2.append('description', formValue.description as string);      
     if (this.formData.valid) {
-      this.service.insertStationeries(this.formData2).subscribe((data) => {
+      this.service.updateStationeries(this._id , this.formData2).subscribe((data) => {
         if (data) {
-          this.router.navigate(['/stationeries/list'])
+           this.router.navigate(['/stationeries/list']);
         }
       })
     }
   }
 
-}
+
   
+
+}
