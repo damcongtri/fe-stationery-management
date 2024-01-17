@@ -4,16 +4,21 @@ import { CommonModule } from '@angular/common';
 import { SuppliersRoutingModule } from './suppliers-routing.module';
 import { CreateSuppliersComponent } from './create-suppliers/create-suppliers.component';
 import { ListSuppliersComponent } from './list-suppliers/list-suppliers.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditSupplierComponent } from './edit-supplier/edit-supplier.component';
 
 
 @NgModule({
   declarations: [
     CreateSuppliersComponent,
-    ListSuppliersComponent
+    ListSuppliersComponent,
+    EditSupplierComponent
   ],
   imports: [
     CommonModule,
-    SuppliersRoutingModule
+    SuppliersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SuppliersModule { }

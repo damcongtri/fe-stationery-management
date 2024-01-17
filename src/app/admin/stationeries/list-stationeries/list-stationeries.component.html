@@ -25,28 +25,29 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>UnitPrice</th>
-                        <th>Inventory</th>
-                        <th>ReoderLevel</th>
+                        <th>Inventory</th>  
                         <th>Supplier</th>
                         <th>Category</th>
                         <th>Description</th>
+                        <td>Image</td>
                         <th>Action</th>
 
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    
+                    <tr *ngFor="let item of listStationeries">
                         <td>#</td>
-                        <td>Id</td>
-                        <td>Name</td>
-                        <td>Price</td>
-                        <td>UnitPrice</td>
-                        <td>Inventory</td>
-                        <td>ReoderLevel</td>
-                        <td>Supplier</td>
-                        <td>Category</td>
-                        <td>Description</td>
+                        <td>{{item.stationeryId}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.unitPrice}}</td>
+                        <td>{{item.inventory}}</td>
+                        <td>{{item.supplier.name}}</td>
+                        <td>{{item.category.categoryName}}</td>
+                        <td>{{item.description}}</td>
+                        <td><img src="{{item.image}}" alt=""></td>
                         <td>
                             <ul>
                                 <li>
@@ -55,13 +56,12 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
+                                    <a routerLink="/stationeries/edit/{{item.stationeryId}}" >
                                         <i class="ri-pencil-line"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">
+                                    <a  (click)="delete(item.stationeryId)" >
                                         <i class="ri-delete-bin-line"></i>
                                     </a>
                                 </li>
