@@ -1,33 +1,69 @@
- <!-- create-category -->
+<!-- create-category -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 m-auto">
             <div class="card">
                 <div class="card-body">
                     <div class="card-header-2">
-                        <h5>Import Infomation</h5>
+                        <h5 class="card-title">Add Import Detail Infomation</h5>
                     </div>
-                    <form action="" class="theme-form theme-form-2 mega-form">
-                        <div class="mb-4 row align-items-center">
-                            <label class="form-label-title col-sm-3 mb-0 mt-2" >UserCreateId</label>
-                            <div class="col-sm-9">
-                           <select class="form-control" style="width: 150px;" id="">
-                            <option  value="">1</option>
-                            <option value="">2</option>
-                           </select>
+                    <form [formGroup]="importDetailForm" (ngSubmit)="onSubmit()" class="form-group">
+                        <div class="mb-3">
+                            <label for="stationeryId" class="form-label">Stationery ID:</label>
+                            <select formControlName="stationeryId" class="form-control" id="stationeryId">
+                                <option value="">Please select stationery</option>
+                                <option *ngFor="let stationery of stationeries" [value]="stationery.stationeryId">
+                                    {{stationery.name}}</option>
+                            </select>
+
+
+                            <label for="quantity" class="form-label">Quantity:</label>
+                            <input type="number" formControlName="quantity" class="form-control" id="quantity" />
+
+
                         </div>
-                        </div>
-                        <div class="mb-4 row align-items-center">
-                            <label class="form-label-title col-sm-3 mb-0">ImportDate</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="date" placeholder="Please select the  contactinfo">
-                            </div>
-                        </div>
-                     
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary ">Sumbit</button>
-                        </div>
+
+                        <button type="button" (click)="addImportDetail()" class="btn btn-primary">Add Import
+                            Detail</button>
                     </form>
+                    <div class="card-header-2">
+                        <h5 class="card-title">Add Import Infomation</h5>
+                    </div>
+                    <form [formGroup]="importForm" (ngSubmit)="onSubmit()" class="form-group">
+                        <label for="importDate" class="form-label">Import Date:</label>
+                        <input type="datetime-local" formControlName="importDate" class="form-control"
+                            id="importDate" />
+                        <label for="importDate" class="form-label mt-3">Import Details:</label>
+                        <div class="p-2">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let importDetail of importDetailList; let i = index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{importDetail.stationeryId}}</td>
+                                        <td>{{importDetail.quantity}}</td>
+                                        <td>
+                                            <a class="btn btn-danger" role="button"
+                                                (click)="removeImportDetail(i)">Remove</a>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-3">Submit</button>
+                    </form>
+
                 </div>
             </div>
         </div>

@@ -19,115 +19,63 @@
             <table class="table all-package theme-table table-product" id="table_id">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>IdRequest</th>
-                        <th>UserID</th>
-                        <th>RequestDate</th>
+
+                        <th>RequestId</th>
+                        <th>UserId</th>
                         <th>ApprovalStatus</th>
                         <th>CancellationDate</th>
                         <th>WithdrawalDate</th>
-                        <th>Approvedld</th>
+                        <th>ApprovedId</th>
+                        <th>RequestDate</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="">
-                            <span>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox-1">
-                                    <label class="form-check-label" for="checkbox-1"></label>
-                                </div>
-                            </span>
-                        </td>
-                        <td>1</td>
+                    <tr *ngFor="let request of listRequest; let i = index">
 
-                        <td>Aata Buscuit</td>
-                        <td class="status-danger">
-                            10
+                        <td>{{request.requestId}}</td>
+
+                        <td>{{request.userId}}
                         </td>
                         <td class="status-danger">
-                            10
+                            {{statusToString(request.approvalStatus)}}
                         </td>
                         <td class="status-danger">
-                            10
+                            {{request.cancellationDate}}
                         </td>
                         <td class="status-danger">
-                            10
+                            {{request.withdrawalDate}}
                         </td>
                         <td class="status-danger">
-                            10
+                            {{request.approvedId}}
+                        </td>
+                        <td class="status-danger">
+                            {{request.requestDate}}
                         </td>
                         <td>
                             <ul>
                                 <li>
-                                    <a href="order-detail.html">
-                                        <i class="ri-eye-line"></i>
-                                    </a>
+                                    <input name="" id="" class="btn btn-success" [disabled]="request.approvalStatus>1"
+                                        type="button" value="Accept"
+                                        (click)="updateStatus(request.requestId,RequestStatus.Approved)" />
+
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="ri-pencil-line"></i>
-                                    </a>
+                                    <input name="" id="" class="btn btn-danger" [disabled]="request.approvalStatus>1"
+                                        type="button" value="Reject"
+                                        (click)="updateStatus(request.requestId,RequestStatus.Rejected)" />
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="javascript:void(0)" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalToggle">
                                         <i class="ri-delete-bin-line"></i>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </td>
                     </tr>
 
-                    <tr>
-                        <td class="">
-                            <span>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="checkbox-1">
-                                    <label class="form-check-label" for="checkbox-1"></label>
-                                </div>
-                            </span>
-                        </td>
-                        <td>1</td>
 
-                        <td>Aata Buscuit</td>
-                        <td class="status-danger">
-                            10
-                        </td>
-                        <td class="status-danger">
-                            10
-                        </td>
-                        <td class="status-danger">
-                            10
-                        </td>
-                        <td class="status-danger">
-                            10
-                        </td>
-                        <td class="status-danger">
-                            10
-                        </td>
-                        <td>
-                            <ul>
-                                <li>
-                                    <a href="order-detail.html">
-                                        <i class="ri-eye-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)">
-                                        <i class="ri-pencil-line"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalToggle">
-                                        <i class="ri-delete-bin-line"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
 
                 </tbody>
             </table>

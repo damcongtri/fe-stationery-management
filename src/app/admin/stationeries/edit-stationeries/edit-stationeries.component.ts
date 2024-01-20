@@ -97,6 +97,7 @@ export class EditStationeriesComponent implements OnInit{
     if (this.formData.valid) {
       this.service.updateStationeries(this._id , this.formData2).subscribe((data) => {
         if (data) {
+          this.successful();
            this.router.navigate(['/stationeries/list']);
         }
       })
@@ -104,6 +105,14 @@ export class EditStationeriesComponent implements OnInit{
   }
 
 
-  
+  successful() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Update Successfully',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
 
 }

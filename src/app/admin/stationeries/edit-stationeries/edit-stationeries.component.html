@@ -50,7 +50,7 @@
                               </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label-title" for="product-title-input">UnitPrice</label>
+                            <label class="form-label-title" for="product-title-input">Unit</label>
                             <input type="text" class="form-control" formControlName="unitPrice" placeholder="Please enter the unitprice">
                             <div *ngIf="f.unitPrice.invalid && (f.unitPrice.dirty || f.unitPrice.touched)" class="text-danger">
                                 <div *ngIf="f.unitPrice.errors?.['required']">
@@ -63,15 +63,6 @@
                             <input type="text" class="form-control" formControlName="inventory" placeholder="Please enter the quantity inventory">
                             <div *ngIf="f.inventory.invalid && (f.inventory.dirty || f.inventory.touched)" class="text-danger">
                                 <div *ngIf="f.inventory.errors?.['required']">
-                                    This is a required field.
-                                </div>
-                              </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label-title" for="product-title-input"> Image</label>
-                            <input type="text" class="form-control" formControlName="image" placeholder="Please enter the quantity inventory">
-                            <div *ngIf="f.image.invalid && (f.image.dirty || f.image.touched)" class="text-danger">
-                                <div *ngIf="f.image.errors?.['required']">
                                     This is a required field.
                                 </div>
                               </div>

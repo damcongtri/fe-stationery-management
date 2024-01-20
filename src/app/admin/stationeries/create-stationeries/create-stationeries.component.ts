@@ -5,6 +5,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CategoryServiceService } from 'src/app/service/category-service.service';
 import { StationeriesService } from 'src/app/service/stationeries.service';
 import { SuppliersService } from 'src/app/service/suppliers.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-stationeries',
@@ -86,10 +87,21 @@ export class CreateStationeriesComponent implements OnInit{
     if (this.formData.valid) {
       this.service.insertStationeries(this.formData2).subscribe((data) => {
         if (data) {
+          this.successful();
           this.router.navigate(['/stationeries/list'])
         }
       })
     }
+  }
+
+  successful() {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Create Successfully',
+      showConfirmButton: false,
+      timer: 1000
+    })
   }
 
 }

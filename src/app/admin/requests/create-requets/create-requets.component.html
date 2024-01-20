@@ -1,75 +1,66 @@
+<!-- create-category -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-8 m-auto">
             <div class="card">
                 <div class="card-body">
                     <div class="card-header-2">
-                        <h5>Import Detail Information</h5>
+                        <h5 class="card-title">Add Request Detail Infomation</h5>
                     </div>
-                    <form action="" class="theme-form theme-form-2 mega-form">
-                        <div class="mb-4 row align-items-center">
-                            <label class="col-sm-3 col-form-label form-label-title">User</label>
-                            <div class="col-sm-9">
-                                <div class="">
-                                    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1" class="form-control">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                      </select>
-                                </div>
-                            </div>
+                    <form [formGroup]="importDetailForm" (ngSubmit)="onSubmit()" class="form-group">
+                        <div class="mb-3">
+                            <label for="stationeryId" class="form-label">Stationery:</label>
+                            <select formControlName="stationeryId" class="form-control" id="stationeryId">
+                                <option value="">Please select stationery</option>
+                                <option *ngFor="let stationery of stationeries" [value]="stationery.stationeryId">
+                                    {{stationery.name}}</option>
+                            </select>
+
+
+                            <label for="quantity" class="form-label">Quantity:</label>
+                            <input type="number" formControlName="quantity" class="form-control" id="quantity" />
+
+
                         </div>
 
-                        <div class="mb-4 row align-items-center">
-                            <label class="form-label-title col-sm-3 mb-0">RequestDate</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="date" placeholder="RequestDate">
-                            </div>
-                        </div>
-
-                        <div class="mb-4 row align-items-center">
-                            <label class="col-sm-3 col-form-label form-label-title">ApprovalStatus</label>
-                            <div class="form-group col-sm-9">
-                               <div class="status">
-                                <input class="mt-4" name="status" type="radio">Hidden
-                                <input class="mt-4 " style="margin-left: 10px;" name="status" type="radio">Show
-                               </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4 row align-items-center">
-                            <label class="form-label-title col-sm-3 mb-0">CancellationDate</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="date" placeholder="CancellationDate">
-                            </div>
-                        </div>
-
-                        <div class="mb-4 row align-items-center">
-                            <label class="form-label-title col-sm-3 mb-0">WithdrawalDate</label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="date" placeholder="WithdrawalDate">
-                            </div>
-                        </div>
-
-                        <div class="mb-4 row align-items-center">
-                            <label class="col-sm-3 col-form-label form-label-title">Approved</label>
-                            <div class="col-sm-9">
-                                <div class="">
-                                    <select class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1" class="form-control">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                      </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary ">Sumbit</button>
-                        </div>
+                        <button type="button" (click)="addImportDetail()" class="btn btn-primary">Add stationery to
+                            request</button>
                     </form>
+                    <div class="card-header-2">
+                        <h5 class="card-title">Add New Request</h5>
+                    </div>
+                    <form (ngSubmit)="onSubmit()" class="form-group">
+                        <label for="importDate" class="form-label mt-3">Request Details:</label>
+                        <div class="p-2">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let importDetail of importDetailList; let i = index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{importDetail.stationeryId}}</td>
+                                        <td>{{importDetail.quantity}}</td>
+                                        <td>
+                                            <a class="btn btn-danger" role="button"
+                                                (click)="removeImportDetail(i)">Remove</a>
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button type="submit" class="btn btn-success mt-3">Submit</button>
+                    </form>
+
                 </div>
             </div>
         </div>

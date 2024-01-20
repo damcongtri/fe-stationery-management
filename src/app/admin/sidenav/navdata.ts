@@ -34,7 +34,7 @@ export const navbarData: INavbarData[] = [
                 routeLink: 'category/create',
                 label: 'Add New Category',
             },
-           
+
         ]
     },
     {
@@ -52,21 +52,21 @@ export const navbarData: INavbarData[] = [
             }
         ]
     },
-    {
-        routeLink: 'import-details',
-        icon: 'ri-list-check-2',
-        label: 'import-details',
-        items: [
-            {
-                routeLink: 'import-details/list',
-                label: 'List import-details',
-            },
-            {
-                routeLink: 'import-details/create',
-                label: 'Add New import-details',
-            }
-        ]
-    },
+    // {
+    //     routeLink: 'import-details',
+    //     icon: 'ri-list-check-2',
+    //     label: 'import-details',
+    //     items: [
+    //         {
+    //             routeLink: 'import-details/list',
+    //             label: 'List import-details',
+    //         },
+    //         {
+    //             routeLink: 'import-details/create',
+    //             label: 'Add New import-details',
+    //         }
+    //     ]
+    // },
     {
         routeLink: 'requests',
         icon: 'ri-list-check-2',
@@ -183,5 +183,5 @@ export const navbarData: INavbarData[] = [
         icon: 'ri-image-line',
         label: 'Banner'
     },
-    
+
 ];

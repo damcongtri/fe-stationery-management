@@ -10,7 +10,7 @@ const routes: Routes = [
         children: [
             // { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Chuyển hướng ngay lập tức đến dashboard
             { path: '', component: DashboardComponent },
-            
+
             {
                 path: 'category',
                 loadChildren: () => import('./category/category.module').then(m => m.CategoryModule)
@@ -27,10 +27,10 @@ const routes: Routes = [
                 path: 'imports',
                 loadChildren: () => import('./imports/imports.module').then(m => m.ImportsModule)
             },
-            {
-                path: 'import-details',
-                loadChildren: () => import('./import-details/import-details.module').then(m => m.ImportDetailsModule)
-            },
+            // {
+            //     path: 'import-details',
+            //     loadChildren: () => import('./import-details/import-details.module').then(m => m.ImportDetailsModule)
+            // },
             {
                 path: 'requests',
                 loadChildren: () => import('./requests/requests.module').then(m => m.RequestsModule)
@@ -39,7 +39,7 @@ const routes: Routes = [
                 path: 'request-details',
                 loadChildren: () => import('./request-details/request-details.module').then(m => m.RequestDetailsModule)
             },
-           
+
             {
                 path: 'user',
                 loadChildren: () => import('./user/user.module').then(m => m.UserModule)

@@ -1,348 +1,255 @@
-// phần biểu đồ start
 .card {
-    padding: 35px 25px;
-    // padding: 20px 18px;
-    margin-bottom: 30px;
-    letter-spacing: 0.5px;
-    border-radius: 15px;
-    transition: all 0.3s ease;
     border: none;
+
+    .title-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h5 {
+            font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .right-options {
+            ul {
+                display: flex;
+                align-items: center;
+                gap: calc(9px + (15 - 9) * ((100vw - 320px) / (1920 - 320)));
+                -webkit-box-align: center;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        font-size: calc(15px + (16 - 15) * ((100vw - 320px) / (1920 - 320)));
+                        color: #222;
+                        text-transform: capitalize;
+                        display: block;
+                        text-decoration: none;
+                        letter-spacing: 1px;
+                    }
+
+                    .btn {
+                        padding: calc(7px + (10 - 7) * ((100vw - 320px) / (1920 - 320))) calc(14px + (32 - 14) * ((100vw - 320px) / (1920 - 320)));
+                        font-size: 14px;
+                        color: #fff;
+                    }
+
+                    .btn-solid {
+                        border: 1px solid #0da487 !important;
+                        background-color: #0da487 !important;
+                    }
+                }
+            }
+
+        }
+    }
 
     .card-body {
         padding: 0;
+
+        .body_pagination {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .pagination {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+
+            a,
+            .pagination-item {
+                margin: 0 5px;
+                padding: 8px 12px;
+                background-color: #008080;
+                color: #fff !important;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &.active {
+                    background-color: #008080;
+                }
+            }
+        }
+
     }
 
-    .card-body {
-        position: relative;
-        padding-left: 14px;
+}
 
-        .media {
-            display: flex;
+.card-table {
+    padding: calc(14px + (25 - 14) * ((100vw - 320px) / (1920 - 320)));
+}
 
-            .media-body {
-                align-self: center !important;
+.css-overflow-x::-webkit-scrollbar {
+    width: 5px;
+    height: 6px;
+    /* Độ rộng mới của thanh trượt */
+}
 
-                span {
-                    font-size: 16px;
-                    color: #9a9a9a;
+.css-overflow-x::-webkit-scrollbar-thumb {
+    background-color: #88cfc1;
+    border-radius: 10px;
+    /* Màu của thanh trượt */
+}
+
+.css-overflow-x::-webkit-scrollbar-thumb:hover {
+    background-color: #0da487;
+    /* Màu của thanh trượt khi hover */
+}
+
+.product-search {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+    align-items: center;
+
+    input {
+        border: 1px solid #ced4da;
+        padding: 8px 38px 8px 10px;
+        margin-left: 13px;
+        outline: 0;
+        border-radius: 3px;
+        background-color: transparent;
+    }
+}
+
+table {
+    thead {
+        tr {
+            th {
+                border-bottom: 0;
+                color: #4a5568;
+                font-size: 15.0195px;
+                font-weight: 700;
+                border-top: 0;
+                background-color: #f3f3f3 !important;
+                text-align: center;
+                min-width: 170px;
+                padding: 15px !important;
+                font-weight: bold;
+            }
+
+            th:first-child {
+                max-width: none !important;
+                border-top-left-radius: 9px;
+                border-bottom-left-radius: 9px;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                border-top: 0;
+                padding: 12px 15px;
+                border: none;
+                text-align: center;
+                white-space: nowrap;
+                vertical-align: middle !important;
+
+                .form-check {
+                    .form-check-input[type="checkbox"] {
+                        transform: scale(1.3);
+                        /* Điều chỉnh kích thước checkbox theo ý muốn */
+                        // margin-right: 10px;
+                        /* Tạo khoảng cách giữa checkbox và văn bản nếu cần */
+                    }
+
                 }
 
-                h4 {
-                    font-size: 26px;
+            }
+
+            td:nth-child(4) {
+                color: #0da487;
+            }
+
+            td:first-child {
+                border-top-left-radius: 9px;
+                border-bottom-left-radius: 9px;
+            }
+
+            .table-image {
+                width: 65px;
+                height: 65px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+            }
+
+            .td-price {
+                font-weight: 800;
+            }
+
+            .status-danger {
+                span {
+                    background-color: rgba(226, 36, 84, 0.15);
+                    color: #e22454;
+                    padding: 5px 10px;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+
+            .status-close {
+                span {
+                    background-color: rgba(47, 135, 51, 0.15);
+                    color: #2f8733;
+                    padding: 5px 10px;
+                    text-transform: capitalize;
+                    display: inline-block;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+
+            td:last-child {
+                ul {
+                    padding-left: 0px;
+                    list-style-type: none;
+                    margin-bottom: 0;
                     display: flex;
                     align-items: center;
-                    gap: 10px;
-                    margin-top: 5px;
-                    font-weight: 600;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    gap: 15px;
 
-                    .grow {
-                        font-size: 12px;
-                        vertical-align: bottom;
-
-                        svg {
-                            width: 13px;
-                            height: 13px;
-                            vertical-align: bottom;
-                            padding-top: 0;
-                            font-size: 10px;
-                            margin-right: 8px;
+                    li {
+                        a {
+                            color: #0da487;
+                            text-decoration: none;
+                            letter-spacing: 1px;
                         }
                     }
-
-                    .badge {
-                        padding: 0.44em 0.7em;
-                    }
-
-                    .badge-light-primary {
-                        background-color: rgba(13, 164, 135, 0.1);
-                        color: #0da487;
-                    }
-
-                    .badge-light-danger {
-                        background-color: rgba(116, 125, 198, 0.12);
-                        color: #6670bd;
-                    }
-
-                    .badge-light-secondary {
-                        background-color: rgba(239, 63, 62, 0.12);
-                        color: #ef3f3e;
-                    }
-
-                    .badge-light-success {
-                        background-color: rgba(158, 101, 194, 0.2);
-                        color: #9e65c2;
-                    }
-
-
                 }
             }
 
-
         }
-    }
 
-    .custome-1-bg:after {
-        background-color: #0da487;
-    }
-
-    .card-body:after {
-        content: "";
-        position: absolute;
-        width: 3px;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background-color: #0da487;
-
-
-    }
-
-    &:hover {
-        // hover vào bất cứ thứu gì nó cũng sẽ nẩy lên 
-        // box-shadow: 10px 10px 8px 10px #888888;
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s ease;
-        transform: translateY(-5px);
-
-    }
-}
-
-.custome-1-bg {
-    .align-self-center {
-        background-color: rgba(13, 164, 135, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 6px;
-        margin-left: 16px;
-
-        i {
-            color: #0da487;
-            font-size: 25px;
-        }
-    }
-
-
-}
-
-.custome-2-bg {
-    .align-self-center {
-        background-color: rgba(116, 125, 198, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 6px;
-        margin-left: 16px;
-
-        i {
-            color: #747dc6;
-            font-size: 25px;
-        }
-    }
-
-
-}
-
-.custome-3-bg {
-    .align-self-center {
-        background-color: rgba(239, 63, 62, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 6px;
-        margin-left: 16px;
-
-        i {
-            color: #ef3f3e;
-            font-size: 25px;
-        }
-    }
-
-
-}
-
-.custome-4-bg {
-    .align-self-center {
-        background-color: rgba(158, 101, 194, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        border-radius: 6px;
-        margin-left: 16px;
-
-        i {
-            color: #9e65c2;
-            font-size: 25px;
-        }
-    }
-
-
-}
-
-.card-header {
-    background-color: #fff;
-    padding: 0;
-    position: relative;
-    margin-bottom: 16px;
-
-    .card-header-title {
-        h4 {
-            font-size: 18px;
-            font-weight: 500;
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
         }
     }
 }
-
-.card-header-title {
-    margin-bottom: 16px;
-
-    h4 {
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-}
-
-.wrapper {
-    a {
-        h6 {
-            // font-size: 13px;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
-            overflow: hidden;
-            color: #333;
-            font-size: calc(13px + (14 - 13) * ((100vw - 320px) / (1920 - 320)));
-            line-height: 1.2;
-            margin: 0;
-            font-weight: 400;
-        }
-    }
-
-    a {
-        img {
-            width: 105px;
-            height: 100%;
-            border-radius: 10px;
-            opacity: 1;
-
-        }
-
-        img:hover {
-            background: #0da487;
-            cursor: pointer;
-        }
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -mobile 425
-@media(max-width:426px) {
-    .card {
-        padding: 22px 22px;
-
-        .card-body {
-            .media {
-                .media-body {
-                    span {
-                        font-size: 13px;
-                    }
-
-                    h4 {
-                        font-size: 17px;
-                    }
-                }
-            }
-        }
-    }
-
-    .custome-1-bg {
-        .align-self-center {
-            width: 35px;
-            height: 35px;
-        }
-
-    }
-
-    .custome-2-bg {
-        .align-self-center {
-            width: 35px;
-            height: 35px;
-        }
-
-    }
-
-    .custome-3-bg {
-        .align-self-center {
-            width: 35px;
-            height: 35px;
-        }
-
-    }
-
-    .custome-4-bg {
-        .align-self-center {
-            width: 35px;
-            height: 35px;
-        }
-
-    }
-
-}
-
-// -mobile 321
-@media (max-width:321px) {
-    .card {
-        padding: 22px 22px;
-
-        .card-body {
-            .media {
-                .media-body {
-                    span {
-                        font-size: 10px;
-                    }
-
-                    h4 {
-                        font-size: 15px;
-
-                    }
-                }
-            }
-        }
-    }
-}
-
-// phần biểu đồ end
